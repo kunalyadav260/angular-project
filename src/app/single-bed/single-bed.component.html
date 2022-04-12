@@ -1,0 +1,43 @@
+<body style="background-color:beige;">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/assets/images/im.jpg" alt="" width="200px">
+        </div>
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="box">
+                                <div class="text-center mb-4">
+                                    <h5>Please Enter your Personal Details</h5>
+                                </div>
+                                <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
+                                    <div class="form-group">
+                                        <label for="Cust_name">Name: </label>
+                                        <input type="text" name="Cust_name" ngModel placeholder="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Cust_phone">Phone: </label>
+                                        <input type="text" name="Cust_phone" ngModel placeholder="phone">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Cust_email">Email: </label>
+                                        <input type="text" name="Cust_email" ngModel placeholder="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Cust_add">Address: </label>
+                                        <input type="text" name="Cust_add" ngModel placeholder="add"><br>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>            
+                            </div>
+                        </div>
+                </div>
+            </div>
+                
+                
+                
+                
+        </div>
+    </div>
+</body>

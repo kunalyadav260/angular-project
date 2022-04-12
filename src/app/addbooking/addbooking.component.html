@@ -1,0 +1,11 @@
+<button>ADD</button>
+<form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
+    <input type="text" name="room_id" ngModel placeholder="Room ID"><br>
+    <input type="text" name="hotel_id" ngModel placeholder="Hotel ID"><br>
+    <input type="text" name="cust_id" ngModel placeholder="Cust ID"><br>
+    <input type="text" name="cust_check_in" ngModel placeholder="Cust Check In"><br>
+    <input type="text" name="cust_check_out" ngModel placeholder="Cust Check Out"><br>
+    <input type="text" name="payment_info" ngModel placeholder="Payment Info"><br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+</form>  

@@ -1,0 +1,10 @@
+<button type="submit" [disabled]="">ADD new customer</button>
+<button>Update new customer</button>
+<form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
+    <input type="text" name="Cust_name" ngModel placeholder="name"><br>
+    <input type="text" name="Cust_phone" ngModel placeholder="phone"><br>
+    <input type="text" name="Cust_email" ngModel placeholder="email"><br>
+    <input type="text" name="Cust_add" ngModel placeholder="add"><br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+</form>  

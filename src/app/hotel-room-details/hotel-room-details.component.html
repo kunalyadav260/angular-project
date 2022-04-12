@@ -1,0 +1,13 @@
+<body style="background-color: beige;background-size: 100% 100%;">
+    <h1 style="text-align: center;font-weight: bold;font-family: 'Times New Roman', Times, serif;color: brown;">CHOOSE AMONG THE BEST HOTELS IN INDIA</h1>
+    <div class="row">
+        <div class="card" style="width: 18rem;margin:20px;"  *ngFor="let hot of hotel_detail">
+          
+          <img class="card-img-top" src="/assets/images/image1.jpg" alt="Card image cap">
+          <div class="card-body">
+              <h5 class="card-title">{{hot['room_descrip']}}</h5>
+              <p class="card-text">Rs {{hot['room_rate']}}/per night</p>
+              <a href="/single-bed" class="btn btn-primary">Book Room</a>
+          </div>
+      </div>
+  </div> 

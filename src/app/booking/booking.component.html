@@ -1,0 +1,24 @@
+<!-- <p>booking works!</p>
+  <h2>Hotel List</h2>
+  
+  <ul *ngFor="let hot of hotel">
+      <li>{{hot['hotel_name']}}</li>
+  </ul> -->
+
+  <!--  -->
+  <body style="background-color: beige;background-size: 100% 100%;">
+      <h1 style="text-align: center;font-weight: bold;font-family: 'Times New Roman', Times, serif;color: brown;">CHOOSE AMONG THE BEST HOTELS IN INDIA</h1>
+      <div class="row">
+          <div class="card" style="width: 18rem;margin:20px;"  *ngFor="let hot of hotel">
+            
+            <img class="card-img-top" src="/assets/images/image1.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{hot['hotel_name']}}</h5>
+                <p class="card-text">{{hot['hotel_add']}}</p>
+                <p class="card-text">{{hot['hotel_email']}}</p>
+                <a href="/hotel-room-details" class="btn btn-primary">Book Room</a>
+            </div>
+        </div>
+    </div> 
+    
+</body>
