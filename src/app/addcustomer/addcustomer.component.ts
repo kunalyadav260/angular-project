@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HotelServiceService } from '../hotel-service.service';
 import { HttpClient } from '@angular/common/http';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-addcustomer',
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddcustomerComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private toast:NgToastService) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +21,7 @@ export class AddcustomerComponent implements OnInit {
       console.warn("result",result)
     })
     console.warn(data);
+    this.toast.success({detail:"Success message",summary:"Customer Added successfully",duration:5000});
   }
 
 }

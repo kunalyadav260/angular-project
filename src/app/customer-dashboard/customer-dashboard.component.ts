@@ -3,7 +3,8 @@ import { NgForm } from '@angular/forms';
 import { HotelServiceService } from '../hotel-service.service';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { cust_details } from './customer-dashboard.model';
+import { Icust_details } from './customer-dashboard.model';
+import { forkJoin, tap,Observable } from 'rxjs';
 
 @Component({
   selector: 'app-customer-dashboard',
@@ -12,84 +13,32 @@ import { cust_details } from './customer-dashboard.model';
 })
 export class CustomerDashboardComponent implements OnInit {
 
-  formValue !: FormGroup;
-  employeeData !: any;
-  employeeObj : cust_details = new cust_details();
-  showAdd !: boolean;
-  showUpdate !: boolean;
-  @Input() receive !: string;
-  @Input() mobileSpecification !: any;
-  role:string =""
-  constructor(private api: HotelServiceService,
-    private formBuilder: FormBuilder) { }
-
+  public cust:any[]=[];
+  public hotel:any[]=[];
+  constructor(private _hotel_service:HotelServiceService) { }
+  formValue!:FormGroup;
   ngOnInit(): void {
-    this.formValue = this.formBuilder.group({
-      cust_name: [''],
-      cust_phone: [''],
-      cust_email: [''],
-      cust_add: ['']
-    })
-    this.getEmployeeDetails();
-    this.role = localStorage.getItem('userType')!
-  }
-  clickAddEmployee(){
-    this.formValue.reset();
-    this.showAdd = true;
-    this.showUpdate = false;
-  }
-  postEmployeeDetails() {
-    this.employeeObj.cust_name = this.formValue.value.cust_name;
-     this.employeeObj.cust_phone = this.formValue.value.cust_phone;
-     this.employeeObj.cust_email = this.formValue.value.cust_email;
-     this.employeeObj.cust_add = this.formValue.value.cust_add;
+    this._hotel_service.getBookingDetails()
+    .subscribe(data=>{
+      console.log("this is booking details table data",data);
+      this.cust=data;
+    });
+  } 
 
-    this.api.PostEmployee(this.employeeObj)
-      .subscribe(res => {
-        console.log(res);
-        let ref = document.getElementById('close');
-      ref?.click();
-      this.getEmployeeDetails();
-      })
-  }
-  getEmployeeDetails() {
-    this.api.GetEmployees()
-    .subscribe(res=>{
-      this.employeeData = res.employeeDetails;
-      
-    })
-  }
-  editEmployeeDetail(){
-    this.employeeObj.cust_name = this.formValue.value.cust_name;
-    this.employeeObj.cust_phone = this.formValue.value.cust_phone;
-    this.employeeObj.cust_email = this.formValue.value.cust_email;
-    this.employeeObj.cust_add = this.formValue.value.cust_add;
-    this.api.UpdateEmployee(this.employeeObj)
-    .subscribe(res=>{
-      alert("Updated Successfully")
-      let ref = document.getElementById('close');
-      ref?.click();
-      this.getEmployeeDetails();
-    })
-  }
-  onEdit(row : any){
-    this.employeeObj.cust_id = row.id;
-    this.formValue.controls['cust_name'].setValue(row.cust_name);
-    this.formValue.controls['cust_phone'].setValue(row.cust_phone);
-    this.formValue.controls['cust_email'].setValue(row.cust_email);
-    this.formValue.controls['cust_add'].setValue(row.cust_add);
-    this.showUpdate = true;
-    this.showAdd = false;
-  }
+  // constructor(private _http:HttpClient){}
+  // ngOnInit(): void {
+    
+  //   let first=this._http.get('https://localhost:7217/api/Cust_details_');
+  //   let second=this._http.get('https://localhost:7217/api/Booking_details');
+  //   forkJoin([first,second]).subscribe(data=>{
+  //     this.cust.push(data);
+  //     console.log("first",this.cust);
+  //    console.log(data);
+  //    console.log("This is data[0]",data[0]);
+     
+  //    console.log("This is data[1]",data[1]);
+  //   });
+  //   }
+  } 
 
-  deleteEmployeeDetail(row : any){
-   let clickedYes = confirm("Are you sure want to delete");
-   if(clickedYes){
-    this.api.DeleteEmployee(row.cust_id)
-    .subscribe(res=>{
-      alert("Deleted Successfully");
-      this.getEmployeeDetails();
-    })
-   }
-  }
-}
+

@@ -1,1 +1,31 @@
-<p>contact works!</p>
+<!-- Default form contact -->
+<div class="container">
+
+  <form class="text-center border border-light p-5" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <h1 >Contact US</h1>
+    <!-- Name -->
+    <input type="text" formControlName="contactFormName" id="defaultContactFormName" mdbInput
+      class="form-control mb-4" placeholder="Name">
+    <!-- Email -->
+    <input type="email" formControlName="contactFormEmail" id="defaultContactFormEmail" mdbInput
+    class="form-control mb-4" placeholder="E-mail">
+    <!-- Subject -->
+    <label>Subject : </label>
+    <select formControlName="contactFormSubjects" class="browser-default custom-select mb-4" aria-placeholder="Choose an Option">
+      <option value="" disabled>Choose option</option>
+      <option value="1" selected>Feedback</option>
+      <option value="2">Report a bug</option>
+      <option value="3">Feature request</option>
+      <option value="4">Feature request</option>
+    </select>
+    <!-- Message -->
+    <div class="form-group">
+      <textarea formControlName="contactFormMessage" class="form-control rounded-0" mdbInput id="exampleFormControlTextarea2"
+      rows="3" placeholder="Message"></textarea>
+    </div>
+    <!-- Copy -->
+    <!-- Send button -->
+    <button class="btn btn-primary" style="margin: 10px;">Submit</button>
+  </form>
+  <!-- Default form contact -->
+</div>

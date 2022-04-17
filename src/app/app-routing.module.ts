@@ -16,8 +16,9 @@ import { SignupComponent } from './signup/signup.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 
 
+
 const routes: Routes = [
-  {path:'',redirectTo:'/home',pathMatch:'full'},
+  {path:'',redirectTo:'/signup',pathMatch:'full'},
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutUsComponent,},
   { path: 'booking', component: BookingComponent },

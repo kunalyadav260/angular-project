@@ -21,6 +21,7 @@ import { AddbookingComponent } from './addbooking/addbooking.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { CustomerDashboardComponent } from './customer-dashboard/customer-dashbo
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

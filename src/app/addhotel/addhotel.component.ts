@@ -1,5 +1,6 @@
+import { NgToastService } from 'ng-angular-popup';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 import { HotelServiceService } from '../hotel-service.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,7 +12,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddhotelComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+
+  constructor(private http:HttpClient,private toast:NgToastService) { }
 
   ngOnInit(): void {
   }
@@ -21,5 +23,6 @@ export class AddhotelComponent implements OnInit {
       console.warn("result",result)
     })
     console.warn(data);
+    this.toast.success({detail:"Success message",summary:"Hotel Added successfully",duration:5000});
   }
 }

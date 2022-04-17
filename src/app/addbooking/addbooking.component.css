@@ -1,0 +1,21 @@
+h5{
+    padding-top: 20px;
+    
+    padding-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: brown;
+    font-size: 40px;
+}
+#tp{
+    margin-left: 190px;
+}
+body{
+    /* background-color: gray; */
+}
+#btn{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+label{
+    font-weight: bold;
+}

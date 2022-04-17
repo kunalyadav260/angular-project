@@ -1,11 +1,99 @@
-<button>ADD</button>
-<form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
-    <input type="text" name="room_id" ngModel placeholder="Room ID"><br>
-    <input type="text" name="hotel_id" ngModel placeholder="Hotel ID"><br>
-    <input type="text" name="cust_id" ngModel placeholder="Cust ID"><br>
-    <input type="text" name="cust_check_in" ngModel placeholder="Cust Check In"><br>
-    <input type="text" name="cust_check_out" ngModel placeholder="Cust Check Out"><br>
-    <input type="text" name="payment_info" ngModel placeholder="Payment Info"><br>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    
-</form>  
+<body>
+    <!-- <img src="/assets/images/image1.jpg" alt="" width="1120px"> -->
+       <div class="container" >
+           
+           <h5 style="text-align: center;">ONLY ADMIN HAS THIS RIGHT <br> ADD NEW BOOKING</h5>
+           
+           <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
+                                   <div class="form-group row" id="tp">
+                                       <label for="Cust_name" class="col-sm-2 col-form-label">Name: </label>
+                                       <div class="col-sm-5">
+                                           <input class="form-control" type="text" type="text" required #name="ngModel" 
+                                           [class.is-invalid]="name.invalid&&name.touched" name="Cust_name" ngModel placeholder="name">
+                                           <small class="text-danger" [class.d-none]="name.valid||name.untouched">Name IS REQUIRED</small><br>
+                                       
+                                        </div>
+                                   </div>
+                                   <div class="form-group row" id="tp">
+                                       <label for="Cust_phone" class="col-sm-2 col-form-label">Phone: </label>
+                                       <div class="col-sm-5">
+                                           <input  class="form-control" type="text" required #phone="ngModel" 
+                                           [class.is-invalid]="phone.invalid&&phone.touched" name="Cust_phone" ngModel placeholder="phone">
+                                           <small class="text-danger" [class.d-none]="phone.valid||phone.untouched">Phone No. IS REQUIRED</small><br>
+                                       
+                                       </div>
+                                   </div>
+                                   <div class="form-group row" id="tp">
+                                       <label for="Cust_email" class="col-sm-2 col-form-label">Email: </label>
+                                       <div class="col-sm-5">
+                                           <input class="form-control" type="text" required #email="ngModel" 
+                                           [class.is-invalid]="email.invalid&&email.touched" name="Cust_email" ngModel placeholder="email">
+                                           <small class="text-danger" [class.d-none]="email.valid||email.untouched">Email IS REQUIRED</small><br>
+                                       
+                                       </div>
+                                   </div>
+                                   <div class="form-group row" id="tp">
+                                       <label for="Cust_add" class="col-sm-2 col-form-label">Address: </label>
+                                       <div class="col-sm-5">
+                                           <input class="form-control" type="text" required #add="ngModel" 
+                                           [class.is-invalid]="add.invalid&&add.touched" name="Cust_add" ngModel placeholder="address">
+                                           <small class="text-danger" [class.d-none]="add.valid||add.untouched">Address IS REQUIRED</small><br>
+                                      
+                                       </div>
+                                   </div>
+                                   <div class="form-group row" id="tp">
+                                       <label for="room_id" class="col-sm-2 col-form-label">Room ID: </label>
+                                       <!-- <select class="form-control" formControlName="room_descrip">
+                                           <option name="room_descrip" *ngFor="let p of room_descrip" [value]="p">{{p}}</option>
+                                       </select> -->
+                                       <div class="col-sm-5">
+                                           <input class="form-control" type="text" required #room="ngModel" 
+                                           [class.is-invalid]="room.invalid&&room.touched" name="room_id" ngModel placeholder="Room Id">
+                                           <small class="text-danger" [class.d-none]="room.valid||room.untouched">Room ID IS REQUIRED</small><br>
+                                       
+                                        </div>
+                                   </div>
+                                   <div class="form-group row" id="tp">
+                                       <label for="hotel_id" class="col-sm-2 col-form-label">Hotel ID: </label>
+                                       <div class="col-sm-5">
+                                           <input class="form-control" type="text" required #hotel="ngModel" 
+                                           [class.is-invalid]="hotel.invalid&&hotel.touched" name="hotel_id" ngModel placeholder="Hotel Id">
+                                           <small class="text-danger" [class.d-none]="hotel.valid||hotel.untouched">Hotel ID IS REQUIRED</small><br>
+                                       
+                                        </div>
+                                   </div>
+                                                                      
+                                   <div class="form-group row" id="tp">
+                                       <label for="cust_check_in" class="col-sm-2 col-form-label">Check IN: </label>
+                                       <div class="col-sm-5">
+                                           <input class="form-control" type="Date" required #checkin="ngModel" 
+                                           [class.is-invalid]="checkin.invalid&&checkin.touched" name="cust_check_in" ngModel placeholder="name">
+                                           <small class="text-danger" [class.d-none]="checkin.valid||checkin.untouched">Check In IS REQUIRED</small><br>
+                                       
+                                        </div>
+                                   </div>
+
+                                   <div class="form-group row" id="tp">
+                                       <label for="cust_check_out" class="col-sm-2 col-form-label">Check Out: </label>
+                                       <div class="col-sm-5">
+                                       
+                                           <input class="form-control" type="Date" required #check_out="ngModel" 
+                                           [class.is-invalid]="check_out.invalid&&check_out.touched" name="cust_check_out" ngModel placeholder="name">
+                                           <small class="text-danger" [class.d-none]="check_out.valid||check_out.untouched">Check Out IS REQUIRED</small><br>
+                                       
+                                        </div>
+                                   </div>
+                                   <div class="form-group row" id="tp">
+                                       <label for="payment_info" class="col-sm-2 col-form-label">Payment Info: </label>
+                                       <div class="col-sm-5">
+                                           <input class="form-control" type="text"  required #pay="ngModel" 
+                                           [class.is-invalid]="pay.invalid&&pay.touched" name="payment_info" ngModel placeholder="cash/card/wallet">
+                                           <small class="text-danger" [class.d-none]="pay.valid||pay.untouched">Payment Info IS REQUIRED</small><br>
+                                       
+                                        </div>
+                                   </div>    
+                                   <button type="submit" [disabled]="userPost.invalid" class="btn btn-primary" id="btn">Submit</button>
+                               </form> 
+                               
+                           </div>
+                       </body>

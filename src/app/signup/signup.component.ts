@@ -4,6 +4,8 @@ import {FormGroup,FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotelServiceService } from '../hotel-service.service';
 import { UserModel } from '../shared/model/user.model';
+import { NgToastService } from 'ng-angular-popup';
+
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +16,7 @@ export class SignupComponent implements OnInit {
   
   public signUpForm !: FormGroup;
   public signupObj = new UserModel();
-  constructor(private fb :FormBuilder, private http : HttpClient,private router : Router, private api: HotelServiceService) { }
+  constructor(private fb :FormBuilder, private http : HttpClient,private router : Router,private toast:NgToastService, private api: HotelServiceService) { }
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
@@ -36,6 +38,7 @@ export class SignupComponent implements OnInit {
   //     alert("Something went wrong");
   //   })
   // }
+  
   this.signupObj.FullName = this.signUpForm.value.fullname;
   this.signupObj.UserName = this.signUpForm.value.username;
   this.signupObj.Password = this.signUpForm.value.password;
@@ -44,8 +47,9 @@ export class SignupComponent implements OnInit {
   this.api.signUp(this.signupObj)
   .subscribe(res=>{
     alert(res.message);
+    this.toast.success({detail:"Success message",summary:"Signup was successfull",duration:5000});
     this.signUpForm.reset();
-    this.router.navigate(['login'])
+    this.router.navigate(['/home'])
   })
 }
 }

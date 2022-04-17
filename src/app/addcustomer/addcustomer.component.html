@@ -1,10 +1,44 @@
-<button type="submit" [disabled]="">ADD new customer</button>
-<button>Update new customer</button>
-<form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
-    <input type="text" name="Cust_name" ngModel placeholder="name"><br>
-    <input type="text" name="Cust_phone" ngModel placeholder="phone"><br>
-    <input type="text" name="Cust_email" ngModel placeholder="email"><br>
-    <input type="text" name="Cust_add" ngModel placeholder="add"><br>
-    <button type="submit" class="btn btn-primary">Submit</button>
+<!-- <button type="submit" [disabled]="">ADD new customer</button>
+<button>Update new customer</button> -->
+<div>
+    <h1>ADD Customer Details to Database</h1>
+</div>
+<div class="container" style="margin-left: 120px;margin-top: 50px;">
+
+    <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
+        <div class="form-group row" id="tp">
+        <label for="Cust_name" class="col-sm-2 col-form-label">Name: </label>
+        <div class="col-sm-5">
+            <input class="form-control" type="text" required #name="ngModel" 
+            [class.is-invalid]="name.invalid&&name.touched" name="Cust_name" ngModel placeholder="name">
+            <small class="text-danger" [class.d-none]="name.valid||name.untouched">Name IS REQUIRED</small><br>
+        </div>
+    </div>
+    <div class="form-group row" id="tp">
+        <label for="Cust_name" class="col-sm-2 col-form-label">Phone: </label>
+        <div class="col-sm-5">
+            <input class="form-control" type="text" required #phone="ngModel" 
+            [class.is-invalid]="phone.invalid&&phone.touched" name="Cust_phone" ngModel placeholder="phone">
+            <small class="text-danger" [class.d-none]="phone.valid||phone.untouched">Phone IS REQUIRED</small><br>
+        </div>
+    </div>
+    <div class="form-group row" id="tp">
+        <label for="Cust_name" class="col-sm-2 col-form-label">Email: </label>
+        <div class="col-sm-5">
+            <input class="form-control" type="text" required #email="ngModel" 
+            [class.is-invalid]="email.invalid&&email.touched" name="Cust_email" ngModel placeholder="email">
+            <small class="text-danger" [class.d-none]="email.valid||email.untouched">Email IS REQUIRED</small><br>
+        </div>
+    </div>
+    <div class="form-group row" id="tp">
+        <label for="Cust_name" class="col-sm-2 col-form-label">Address: </label>
+        <div class="col-sm-5">
+            <input class="form-control" type="text" required #add="ngModel" 
+            [class.is-invalid]="add.invalid&&add.touched" name="Cust_add" ngModel placeholder="add">
+            <small class="text-danger" [class.d-none]="add.valid||add.untouched">Address IS REQUIRED</small><br>
+        </div>
+    </div>
+    <button type="submit" [disabled]="userPost.invalid" class="btn btn-primary" style="margin-right: 260px;">Submit</button>
     
 </form>  
+</div>
