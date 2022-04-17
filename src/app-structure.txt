@@ -1,0 +1,46 @@
+● src
++---● app
+|   +--● about-us
+|   |  |--about-us.component.ts|.html|.css
+|   +--● addbooking
+|   |  |--addbooking.component.ts|.html|.css
+|   +--● addcustomer
+|   |  |--addcustomer.component.ts|.html|.css
+|   +--● addhotel
+|   |  |--addhotel.component.ts|.html|.css
+|   +--● admin
+|   |  |--admin.component.ts|.html|.css
+|   +--● booking
+|   |  |--booking.component.ts|.html|.css
+|   +--● contact
+|   |  |--contact.component.ts|.html|.css
+|   +--● customer-dashboard
+|   |  |--customer-dashboard.component.ts|.html|.css
+|   +--● footer
+|   |  |--footer.component.ts|.html|.css
+|   +--● home
+|   |  |--home.component.ts|.html|.css
+|   +--● hotel-room-details
+|   |  |--hotel-room-details.component.ts|.html|.css
+|   +--● login
+|   |  |--login.component.ts|.html|.css
+|   +--● navbar
+|   |  |--navbar.component.ts|.html|.css
+|   +--● nopagefound
+|   |  |--nopagefound.component.ts|.html|.css
+|   +--● shared
+|   |  |--auth.guard.ts
+|   |  |--auth.service.ts
+|   +--● signup
+|   |  |--signup.component.ts|.html|.css
+|   +--● single-bed
+|   |  |--single-bed.component.ts|.html|.css
+|   |--app-routing.module.ts
+|   |--app.component.ts|.html|.css
+|   |--booking_detail.ts
+|   |--hotel-service.service.ts
+|   |--hotel.ts
+|   |--payment-detail.model.ts
+|   |--app.module.ts
+|
+|--index.html (cdn path for bootstrap & fa icons)
