@@ -47,6 +47,7 @@ export class SignupComponent implements OnInit {
   this.api.signUp(this.signupObj)
   .subscribe(res=>{
     alert(res.message);
+    console.log("Token is ",res);
     this.toast.success({detail:"Success message",summary:"Signup was successfull",duration:5000});
     this.signUpForm.reset();
     this.router.navigate(['/home'])

@@ -26,7 +26,10 @@ export interface Icust_details{
     cust_phone:string;
     cust_email:string;
     cust_add:string;
-    // cust_check_in:Date;
-    // cust_check_out:Date;
+    room_descrip:string;
+    hotel_name:string;
+    No_of_rooms:number;
+    cust_check_in:Date;
+    cust_check_out:Date;
     payment_info:string;
 }

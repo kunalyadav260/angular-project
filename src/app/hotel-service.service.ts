@@ -29,7 +29,7 @@ export class HotelServiceService {
   
   public loginAPIUrl : string = "https://localhost:7217/api/Login/";
   public employeeAPIUrl : string = "https://localhost:7217/api/Cust_details_";
-  public bookingurl:string="https://localhost:7217/api/Booking_details";
+  public bookingurl:string="https://localhost:7217/api/billing_details";
 
 
   
